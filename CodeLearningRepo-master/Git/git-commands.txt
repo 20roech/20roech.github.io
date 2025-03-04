@@ -1,0 +1,52 @@
+- basic git commands and local repositories
+
+mkdir                                                                makes a directory
+git init                                                             initialises git in the directory and makes it a repository
+git --version                                                        checks and outputs the version of git
+git config --global user.name "username"                             changes global username dont include global to only use it locally on this one repo
+git config --global user.email "email"                               changes global email dont include global to only use it locally on this one repo
+cd                                                                   changes directory use ../ to go back a directory
+ls                                                                   lists the files in the directory
+git status                                                           shows the status of the directory/repo shows if any files are unstaged to the staging environment and changes needed to be commited
+git status --short                                                   shows a more compact view of the git status command
+?? - Untracked files
+A - Files added to stage
+M - Modified files
+D - Deleted files
+git add "filename (dont use quotation marks)"                        adds a file to the staging environment
+git add --all                                                        adds all files in the selected directory to the staging environment
+git add -A                                                           adds all files in the selected directory to the staging environment
+git commit -m "your commit message"                                  commits changes to the repository/repo you dont have to use -m and a message youll just have to do it in a text editor -m is for convenience
+git commit -a -m "your commit message"                               commits all file changes skipping the staging step         - dont do this often it could make changes you dont want being included
+git log                                                              shows the commit log             - PRESS Q TO EXIT OR YOU GET STUCK
+git "command (dont use quotation marks)" -help                       see all available options for a command                                                                                                                                                       skib
+git "command (dont use quotation marks)" --help                      opens the git manual page page for the relevent command (its a very long list)              - PRESS Q TO EXIT
+git help --all                                                       see all possible commands (its a very long list)
+git branch                                                           displays all branches and which branch your currently on a * next to a branch says which branch your on
+git branch "branch name (dont use quotation marks)"                  makes a new branch on your current commit snapshot
+git branch -d "branch name (dont use quotation marks)"               deletes the named branch
+git checkout "branch name (dont use quotation marks)"                changes the branch to the specified branch
+git checkout "branch name -b (dont use quotation marks)"             changes the branch to the specified branch except creates and moves to a new branch if the specified branch isnt already a branch
+git merge "branch name (dont use quotation marks)"                   merges a branch to the parent branch or main branch use this while on the parent branch if this is used on a brnahc that hasnt had a update since the other branch was created it fast forwards basically making them the same as eachother and the branch that was merged can be deleted if you dont need it anymore
+git merge --abort                                                    aborts a branch merge
+
+- github and remote repositories
+
+git remote add origin "URL (dont use quotation marks)"               specifies your added a remote repository (not local) with the specified URL
+git push --set-upstream origin "branch name(dont use quotes)"        pushes the specified branch to the origin url/remote repository and sets it as the default remote branch
+git fetch origin                                                     this fetches changes from the origin/remote repository but doesnt commit the changes to your local version of the repo a bit like the staging environmentnot commiting to the actual repo
+git merge origin/master(or your main branch name)                    merges the current branch with the origin
+git pull origin                                                      fetches and merges with the origin master/main branch a quicker version but less precise then fetch and merge seperately
+git pull                                                             fetches and merges everything (doesnt add new branches from remote repo use git branch -a to see remote branches and checkout to them to pull their changes)
+git log origin/master(or your main branch name)                      views the commit log for both your local repo and the remote and shows you if your a commit/commits behind the remote repo (head -> master) is local repo and its on the current commit the local repo is on same thing with origin but its (origin/master) instead
+git diff origin/master(or your main branch name)                     shows the diffrences between your current branch and the origin
+git push origin                                                      pushes your changes and commits to the origin and undates the origin to your current version
+git branch -a                                                        shows all avalible branches from local and remote repos
+git branch -r                                                        shows all remote branches
+git push origin "branch name (dont include quotation marks)"         pushes changes to the origin/remote repo used if the branch used isnt already in the repo
+git push origin --delete "branch name (dont use quotes)"             deletes a remote branch idk why i couldnt do it with push so this works just need to delete both locally and remotely
+
+- github pages
+
+- the name of the repo has to be your username followed by .github.io (e.g 20roech.github.io)
+git remote add gh-page "URL (dont use quotations)"                   same thing as setting a remote origin but with github pages pushes a local repo to github pages repositories
